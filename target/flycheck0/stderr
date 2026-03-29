@@ -1,88 +1,12 @@
-   0.019410527s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint: fingerprint error for chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust)/Check { test: false }/TargetInner { name: "chip8-rust", doc: true, ..: with_path("/home/daniel/Downloads/chip8-rust/src/main.rs", Edition2024) }
-   0.019446821s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/daniel/Downloads/chip8-rust/target/debug/.fingerprint/chip8-rust-d49d94fd0a205bb3/bin-chip8-rust`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: cargo_util::paths::read_bytes
-   1: cargo_util::paths::read
-   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   3: cargo::core::compiler::fingerprint::prepare_target
-   4: cargo::core::compiler::compile
-   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   6: cargo::ops::cargo_compile::compile_ws
-   7: cargo::ops::cargo_compile::compile_with_exec
-   8: cargo::ops::cargo_compile::compile
-   9: cargo::commands::check::exec
-  10: <cargo::cli::Exec>::exec
-  11: cargo::main
-  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  13: std::rt::lang_start::<()>::{closure#0}
-  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/ops/function.rs:290:21
-  15: std::panicking::catch_unwind::do_call
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
-  16: std::panicking::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
-  17: std::panic::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
-  18: std::rt::lang_start_internal::{{closure}}
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:175:24
-  19: std::panicking::catch_unwind::do_call
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
-  20: std::panicking::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
-  21: std::panic::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
-  22: std::rt::lang_start_internal
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:171:5
-  23: main
-  24: <unknown>
-  25: __libc_start_main
-  26: <unknown>
-   0.029682395s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint: fingerprint error for chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust)/Check { test: true }/TargetInner { name: "chip8-rust", doc: true, ..: with_path("/home/daniel/Downloads/chip8-rust/src/main.rs", Edition2024) }
-   0.029698604s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:     err: failed to read `/home/daniel/Downloads/chip8-rust/target/debug/.fingerprint/chip8-rust-111165639fe427c2/test-bin-chip8-rust`
-
-Caused by:
-    No such file or directory (os error 2)
-
-Stack backtrace:
-   0: cargo_util::paths::read_bytes
-   1: cargo_util::paths::read
-   2: cargo::core::compiler::fingerprint::_compare_old_fingerprint
-   3: cargo::core::compiler::fingerprint::prepare_target
-   4: cargo::core::compiler::compile
-   5: <cargo::core::compiler::build_runner::BuildRunner>::compile
-   6: cargo::ops::cargo_compile::compile_ws
-   7: cargo::ops::cargo_compile::compile_with_exec
-   8: cargo::ops::cargo_compile::compile
-   9: cargo::commands::check::exec
-  10: <cargo::cli::Exec>::exec
-  11: cargo::main
-  12: std::sys::backtrace::__rust_begin_short_backtrace::<fn(), ()>
-  13: std::rt::lang_start::<()>::{closure#0}
-  14: core::ops::function::impls::<impl core::ops::function::FnOnce<A> for &F>::call_once
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/core/src/ops/function.rs:290:21
-  15: std::panicking::catch_unwind::do_call
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
-  16: std::panicking::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
-  17: std::panic::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
-  18: std::rt::lang_start_internal::{{closure}}
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:175:24
-  19: std::panicking::catch_unwind::do_call
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:589:40
-  20: std::panicking::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panicking.rs:552:19
-  21: std::panic::catch_unwind
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/panic.rs:359:14
-  22: std::rt::lang_start_internal
-             at /rustc/1159e78c4747b02ef996e55082b704c09b970588/library/std/src/rt.rs:171:5
-  23: main
-  24: <unknown>
-  25: __libc_start_main
-  26: <unknown>
+   0.014641751s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint: stale: changed "/home/daniel/Downloads/chip8-rust/src/cpu.rs"
+   0.014656176s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:           (vs) "/home/daniel/Downloads/chip8-rust/target/debug/.fingerprint/chip8-rust-d49d94fd0a205bb3/dep-bin-chip8-rust"
+   0.014668498s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1774799743, nanos: 996357874 } < FileTime { seconds: 1774799765, nanos: 593772664 }
+   0.014706343s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint: fingerprint dirty for chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust)/Check { test: false }/TargetInner { name: "chip8-rust", doc: true, ..: with_path("/home/daniel/Downloads/chip8-rust/src/main.rs", Edition2024) }
+   0.014719934s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/daniel/Downloads/chip8-rust/target/debug/.fingerprint/chip8-rust-d49d94fd0a205bb3/dep-bin-chip8-rust", reference_mtime: FileTime { seconds: 1774799743, nanos: 996357874 }, stale: "/home/daniel/Downloads/chip8-rust/src/cpu.rs", stale_mtime: FileTime { seconds: 1774799765, nanos: 593772664 } }))
+   0.014937905s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint: stale: changed "/home/daniel/Downloads/chip8-rust/src/cpu.rs"
+   0.014943618s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:           (vs) "/home/daniel/Downloads/chip8-rust/target/debug/.fingerprint/chip8-rust-111165639fe427c2/dep-test-bin-chip8-rust"
+   0.014954216s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:                FileTime { seconds: 1774799743, nanos: 993024425 } < FileTime { seconds: 1774799765, nanos: 593772664 }
+   0.014977963s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint: fingerprint dirty for chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust)/Check { test: true }/TargetInner { name: "chip8-rust", doc: true, ..: with_path("/home/daniel/Downloads/chip8-rust/src/main.rs", Edition2024) }
+   0.014985371s  INFO prepare_target{force=false package_id=chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust) target="chip8-rust"}: cargo::core::compiler::fingerprint:     dirty: FsStatusOutdated(StaleItem(ChangedFile { reference: "/home/daniel/Downloads/chip8-rust/target/debug/.fingerprint/chip8-rust-111165639fe427c2/dep-test-bin-chip8-rust", reference_mtime: FileTime { seconds: 1774799743, nanos: 993024425 }, stale: "/home/daniel/Downloads/chip8-rust/src/cpu.rs", stale_mtime: FileTime { seconds: 1774799765, nanos: 593772664 } }))
     Checking chip8-rust v0.1.0 (/home/daniel/Downloads/chip8-rust)
-    Finished `dev` profile [unoptimized + debuginfo] target(s) in 11.22s
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.10s
