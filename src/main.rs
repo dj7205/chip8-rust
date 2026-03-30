@@ -53,9 +53,8 @@ fn draw_screen(emulator: &Emulator, canvas: &mut Canvas<Window>) {
     canvas.set_draw_color(Color::RGB(255, 255, 255));
     for (i, pixel) in screen_buf.iter().enumerate() {
         if *pixel {
-            //TODO
             let x = (i % 64) as u32;
-            let y = (i / 32) as u32;
+            let y = (i / 64) as u32;
             let rect = Rect::new((x*SCALING) as i32, (y * SCALING) as i32, SCALING, SCALING);
             canvas.fill_rect(rect).unwrap();
         }

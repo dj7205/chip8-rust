@@ -2,12 +2,17 @@
 
 A simple CHIP-8 emulator written in Rust, built primarily for learning purposes. This project focuses on getting familiar with low-level operations and emulation concepts
 
-## Features & TODOs:
+## Features:
 * CPU fetch cycle
-* implementation of all instructions
 * clockspeed
 * loading a ROM
+
+## TODOs
+* implementation of all instructions
 * Controls
+* clockspeed
+
+* refactoring at a later stage
 
 ## Controls:
 The keypad is mapped to the QWERTZ keyboard layout:<br>

@@ -3,7 +3,7 @@ use std::{fs::File, io::Read};
 pub struct Emulator {
     cpu: CPU,
     memory: [u8; 4096],
-    //TODO keypad
+    keypad: [bool; 16], //16 keys
     screen: [bool; 64 * 32], //screen with width=64 and heigt=32 pixels
 }
 
@@ -14,6 +14,7 @@ impl Emulator {
             cpu: CPU::new(),
             memory: [0; 4096],
             screen: [false; 64 * 32],
+            keypad: [false; 16],
         };
         let fontset = [
             0xF0, 0x90, 0x90, 0x90, 0xF0, // 0
@@ -25,7 +26,7 @@ impl Emulator {
             0xF0, 0x80, 0xF0, 0x90, 0xF0, // 6
             0xF0, 0x10, 0x20, 0x40, 0x40, // 7
             0xF0, 0x90, 0xF0, 0x90, 0xF0, //8
-            0xF1, 0x90, 0xF1, 0x10, 0xF1, //9
+            0xF0, 0x90, 0xF0, 0x10, 0xF0, //9
         ];
         emulator.memory[0..50].copy_from_slice(&fontset); //load fontset into memory
         emulator
@@ -56,25 +57,25 @@ impl Emulator {
     fn execute(&mut self, op: u16) {
         let first_digit = (op & 0xF000) >> 12;
         let second_digit = (op & 0x0F00) >> 8;
-        let third_digit = (op & 0x0F0) >> 4;
-        let fourth_digit = (op & 0x000F);
+        let third_digit = (op & 0x00F0) >> 4;
+        let fourth_digit = op & 0x000F;
 
         println!("opcode= {0:x}", op);
         
         //OPCODES
         match (first_digit, second_digit, third_digit, fourth_digit) {
-            (0, 0, 0xE, 0) => self.screen = [false; 64 * 32], //clear_screen
-            (1, _, _, _) => {
+            (0x0, 0x0, 0xE, 0x0) => self.screen = [false; 64 * 32], //clear_screen
+            (0x1, _, _, _) => {
                 //jump
                 let nnn = op & 0xFFF;
                 self.cpu.set_pc(nnn);
             }
-            (6, X, _, _) => {
+            (0x6, X, _, _) => {
                 //set register vx
                 let nn = (op & 0xFF) as u8;
                 self.cpu.set_v(X as usize, nn);
             }
-            (7, X, _, _) => {
+            (0x7, X, _, _) => {
                 //add to register vx
                 let nn = (op & 0xFF) as u8;
                 let vx = self.cpu.get_v(X as usize);
@@ -82,12 +83,12 @@ impl Emulator {
 
                 self.cpu.set_v(X as usize, sum);
             }
-            (A, _, _, _) => {
+            (0xA, _, _, _) => {
                 //set index register
                 let nnn = op & 0xFFF;
                 self.cpu.set_i(nnn);
             }
-            (D, X, Y, N) => {
+            (0xD, X, Y, N) => {
                 let vx = self.cpu.get_v(X as usize) as u16;
                 let vy = self.cpu.get_v(Y as usize) as u16;
 
