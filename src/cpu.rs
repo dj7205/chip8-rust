@@ -1,15 +1,13 @@
-
 pub struct Register {
-    v : [u8; 16],
-    i : u16,
+    v: [u8; 16],
+    i: u16,
 }
 
 pub struct CPU {
-    pub pc : u16,
-    registers : Register,
-    sp : u16,
-    stack : [u16; 16],
-
+    pc: u16,
+    registers: Register,
+    sp: u16,
+    stack: [u16; 16],
 }
 
 impl CPU {
@@ -20,15 +18,15 @@ impl CPU {
                 v: [0; 16], // 16 general-purpose registers
                 i: 0,       // Index register
             },
-            sp: 0, // Stack pointer starts at 0
+            sp: 0,          // Stack pointer starts at 0
             stack: [0; 16], // Stack to hold return addresses
         }
     }
 
     //put value on top of stack and refresh its pointer
     pub fn push(&mut self, value: u16) {
-    self.stack[self.sp as usize] = value;
-    self.sp += 1;
+        self.stack[self.sp as usize] = value;
+        self.sp += 1;
     }
 
     //return the value on top of the stack
@@ -36,6 +34,30 @@ impl CPU {
         self.sp -= 1;
         self.stack[self.sp as usize]
     }
-}
 
-//OPCODES
+    pub fn get_v(&self, index: usize) -> u8 {
+        self.registers.v[index]
+    }
+
+    pub fn set_v(&mut self, index: usize, value: u8) {
+        self.registers.v[index] = value;
+    }
+
+    pub fn set_i(&mut self, value: u16) {
+        self.registers.i = value
+    }
+    pub fn get_i(&self) -> u16 {
+        self.registers.i
+    }
+    pub fn get_pc(&self) -> u16 {
+        self.pc
+    }
+
+    pub fn set_pc(&mut self, value: u16) {
+        self.pc = value;
+    }
+
+    pub fn inc_pc(&mut self, value: u16) {
+        self.pc += value
+    }
+}
