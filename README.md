@@ -10,10 +10,10 @@ A simple CHIP-8 emulator written in Rust, built primarily for learning purposes.
 * Controls
 
 ## Controls:
-The keypad is mapped to the QWERTZ keyboard layout:
-1 2 3 4  ->  1 2 3 C
-Q W E R  ->  4 5 6 D
-A S D F  ->  7 8 9 E
+The keypad is mapped to the QWERTZ keyboard layout:<br>
+1 2 3 4  ->  1 2 3 C<br>
+Q W E R  ->  4 5 6 D<br>
+A S D F  ->  7 8 9 E<br>
 Y X C V  ->  A 0 B F
 
 ## Goals
